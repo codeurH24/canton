@@ -28,16 +28,16 @@ body{
   right: 0;
   left:0;
   height: 23%;
-  background-color: transparent;
+  background-color: blue;
   overflow: hidden;
   z-index: 2;
 }
 #eau img{
-  /* position: absolute;
-  width: auto;;
+  /*width: auto;;
   height: auto;
   top: -518px;
   left: -294px; */
+  position: absolute;
   display: block;
   width: 97%;
   margin-top: -193px;
@@ -52,5 +52,38 @@ body{
   height: 50px;
   /* border-radius: 100%; */
   position:absolute;
-  z-index: 1;
+  z-index: 4;
+}
+
+.infos {
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+}
+
+#duck {
+  width: 7%;
+  left: 50%;
+  position: absolute;
+  z-index: 5;
+}
+
+#pollution {
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  height: 220%;
+  background-image: url('../image/fondpollue.png');
+  background-size: 100% 100%;
+  top: 15%;
+}
+
+#pollution {
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    height: 250%;
+    background-image: url('../image/fondpollue.png');
+    background-size: 100% 100%;
+    /* top: 15%; */
 }

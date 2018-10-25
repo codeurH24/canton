@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Canton</title>
     <link rel="stylesheet" href="asset/css/site.css">
   </head>
   <body>
+    <div class="infos">
+      <div class="timer">Time : <span>0</span></div>
+      <div class="score">Score : <span>0</span></div>
+    </div>
+    <img id="duck" src="asset/image/canard.png" alt="Le canard du Havre">
     <div id="eau">
-      <img src="asset/image/fondpollue.png" alt="fond pollué">
+      <!-- <img id="pollution" src="asset/image/fondpollue.png" alt="fond pollué"> -->
+      <div id="pollution"></div>
     </div>
     <div id="marre"></div>
     <script src="asset/js/jquery-3.3.1.min.js"></script>
+    <script src="asset/js/func.js"></script>
     <script src="asset/js/app.js"></script>
   </body>
 </html>
