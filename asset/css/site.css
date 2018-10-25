@@ -95,3 +95,22 @@ body{
   top: 50%;
   width: 50%;
 }
+
+
+#play {
+  z-index: 100;
+  display: block;
+  left:27%;
+  position: absolute;
+  top: 50%;
+  width: 50%;
+}
+
+#logo {
+  z-index: 100;
+  display: block;
+  left:27%;
+  position: absolute;
+  top: 10%;
+  width: 30%;
+}
