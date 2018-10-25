@@ -1,8 +1,8 @@
 $(function(){
 
   $("#duck").hide();
-  $("body").append('<img src="asset/image/logo.png" id="logo" alt="Save Duck" />')
-  $("body").append('<img src="asset/image/play.png" id="play" alt="Jouer maintenant" />')
+  $("body").append('<img src="asset/image/logo.png" id="logo" alt="Save Duck" />');
+  $("body").append('<img src="asset/image/play.png" id="play" alt="Jouer maintenant" />');
   $("#play").click(function(){
     $(this).hide();
     $("#logo").hide();
@@ -78,17 +78,14 @@ $(function(){
         }
       }
       window.duckPosition = window.duckPosition + window.duckSpeed;
-      $("#duck").css("left", window.duckPosition+"px")
+      $("#duck").css("left", window.duckPosition+"px");
 
 
       if(Number(window.timer) > 5 && Number(window.timer) < 10) {
-        console.log("5:"+ window.speedGame)
         window.speedGame =  3;
       }else if(Number(window.timer) >= 10 && Number(window.timer) < 20) {
-        console.log("10:"+ window.speedGame)
         window.speedGame =  6;
       }else if(Number(window.timer) >= 20 && Number(window.timer) < 30) {
-        console.log("20:"+ window.speedGame)
         window.speedGame =  8;
       }
     }, 30)

@@ -11,10 +11,10 @@ window.intervals = [];
 window.speedTombe = [];
 var createObjet = function(img){
   var nbrObjet = window.lesObjets.length;
-  window.intervals.push(nbrObjet)
+  window.intervals.push(nbrObjet);
   window.lesObjets[nbrObjet] = "dechet"+nbrObjet;
-  $("body").append('<img src="asset/image/'+img+'" id="dechet'+nbrObjet+'" class="dechet" alt="dechet'+nbrObjet+'" />')
-  var postionLeft = getRandomInt(50)
+  $("body").append('<img src="asset/image/'+img+'" id="dechet'+nbrObjet+'" class="dechet" alt="dechet'+nbrObjet+'" />');
+  var postionLeft = getRandomInt(50);
   postionLeft += 20;
   $(".dechet").css({
     width: "50px",
@@ -39,7 +39,7 @@ var tombe = function(objet, speed){
        $(objet).css("top", window.speedTombe[idobject]+"px");
     }, 30);
 
-    window.intervals[idobject] = interval
+    window.intervals[idobject] = interval;
 }
 
 var destoyObject = function(object){
