@@ -14,16 +14,15 @@ $(function(){
     window.lesObjets[nbrObjet] = "dechet"+nbrObjet;
     console.log("new id: "+nbrObjet)
     $("body").append('<img src="asset/image/'+img+'" id="dechet'+nbrObjet+'" class="dechet" alt="dechet'+nbrObjet+'" />')
-    var postionLeft = getRandomInt(1000)
+    var postionLeft = getRandomInt(50)
+    postionLeft += 20;
     $(".dechet").css({
-      backgroundColor: "#800000",
       width: "50px",
       height: "50px",
-      borderRadius: "100%",
       position:"absolute"
     })
     $("#dechet"+nbrObjet).css({
-      left: postionLeft+"px",
+      left: postionLeft+"%",
     })
     return nbrObjet;
   }
@@ -49,9 +48,9 @@ $(function(){
       clearInterval(window.intervals[idobject]);
     }
   }
-  var objet1 = createObjet('dechet.png');
+  var objet1 = createObjet('dechetgobelet.png');
   tombe ("#"+window.lesObjets[objet1], 3);
-  var objet2 = createObjet('dechet.png');
+  var objet2 = createObjet('dechetgobelet.png');
   tombe ("#"+window.lesObjets[objet2], 5);
 
 
