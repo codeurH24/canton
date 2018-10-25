@@ -1,14 +1,18 @@
 $(function(){
 
+  window.speedGame = 1;
+  window.duckSpeed = -1;
+  window.duckPosition = ( $(window).width() ) / 2;
+
   var objet1 = createObjet('dechetgobelet.png');
-  tombe ("#"+window.lesObjets[objet1], 3);
+  tombe ("#"+window.lesObjets[objet1], (3+ window.speedGame));
   var objet2 = createObjet('dechetgobelet.png');
-  tombe ("#"+window.lesObjets[objet2], 5);
+  tombe ("#"+window.lesObjets[objet2], (5 + window.speedGame));
 
   $("body").on("mousedown", ".dechet", function() {
     $(this).remove();
     if(!window.duckIsDead) {
-      replyObject();
+      replyObject(randomImg(), (3+ window.speedGame));
     }
     window.countScore += 1;
     $(".score span").text(window.countScore);
@@ -41,12 +45,40 @@ $(function(){
       $("#duck").css("top", surfaceDuck + "px");
     }
   }, 100);
-window.pollution = 15;
-$("#pollution").css("top", "15%");
-  //Placement pollution
-  //  setInterval(function(){
-  //    var pollutionHeight = $("#pollution").height();
-  //    var surfacePollution = limitSurface()
-  //    $("#pollution").css("top", surfacePollution + "px");
-  // }, 100);
+
+  window.pollution = 15;
+  $("#pollution").css("top", "15%");
+
+    var  loopPositionDuck;
+    loopPositionDuck = setInterval(function() {
+      if(window.duckIsDead){
+        clearInterval(loopPositionDuck);
+      }
+    var width = $(window).width();
+    var limitLeft = width*0.2;
+    var limitRight = width*0.7;
+
+    if(limitLeft > window.duckPosition || limitRight < window.duckPosition) {
+      window.duckSpeed = window.duckSpeed*-1;
+      if(window.duckSpeed < 0) {
+        $("#duck").css("transform", "scaleX(1.0)");
+      } else {
+        $("#duck").css("transform", "scaleX(-1.0)");
+      }
+    }
+    window.duckPosition = window.duckPosition + window.duckSpeed;
+    $("#duck").css("left", window.duckPosition+"px")
+
+
+    if(Number(window.timer) > 5 && Number(window.timer) < 10) {
+      console.log("5:"+ window.speedGame)
+      window.speedGame =  3;
+    }else if(Number(window.timer) >= 10 && Number(window.timer) < 20) {
+      console.log("10:"+ window.speedGame)
+      window.speedGame =  6;
+    }else if(Number(window.timer) >= 20 && Number(window.timer) < 30) {
+      console.log("20:"+ window.speedGame)
+      window.speedGame =  8;
+    }
+  }, 30)
 });

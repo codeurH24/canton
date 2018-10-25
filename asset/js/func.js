@@ -47,17 +47,17 @@ var destoyObject = function(object){
   limit = limit - 50;
   if( $("#"+object).length != 0 &&  $("#"+object).position().top > limit ){
     $("#"+object).remove();
+    window.countScore -= 2;
+    $(".score span").text(window.countScore);
     var topPollution = parseInt($("#pollution").css("top"));
-    console.log(topPollution);
     if(topPollution <= -223) {
-
       duckDead();
     } else {
       window.pollution -= 20;
       $("#pollution").css("top", window.pollution + "%");
       var idobject = object.replace("dechet", "");
       if (!window.duckIsDead) {
-        replyObject();
+        replyObject(randomImg(), 3 + window.speedGame);
       }
     }
   }
@@ -81,9 +81,9 @@ var collisionObject = function(object){
   }
 }
 
-var replyObject = function() {
-  var object = createObjet('dechetgobelet.png');
-  tombe ("#"+window.lesObjets[object], 3);
+var replyObject = function(img, speed) {
+  var object = createObjet(img);
+  tombe ("#"+window.lesObjets[object], speed);
 }
 
 var limitSurface = function () {
@@ -99,6 +99,13 @@ var duckDead = function() {
       transform : "rotate(180deg)",
       top : "+=75"
     });
+    $("body").append('<img src="asset/image/gameover1.png" id="gameover" alt="fin de partie" />')
   }
   window.duckIsDead = true;
+}
+
+var randomImg = function() {
+  var rand = Math.floor(Math.random() * Math.floor(3));
+  var tabImg= ["dechetgobelet.png", "dechetgodasse.png", "dechetpneu.png"];
+  return tabImg[rand];
 }
